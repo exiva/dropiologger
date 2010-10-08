@@ -1,0 +1,5 @@
+### Drop.io Logger
+
+This is just a small project I started when I started developing my Foursquare client after seeing the android system "DroidDrop". The goal of this is to log exceptions without user interaction, as well as handle bug reports and feature suggestions right from the application to be logged right to your drop.io account. As such it's not really an end-user application, however there is a small GUI attached to the application for the dialogs and a test button.
+
+I don't believe I ever "properly" handled the drop.io responses meaning I never parsed them for success/failure.
