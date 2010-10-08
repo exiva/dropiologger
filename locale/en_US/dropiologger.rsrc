@@ -1,0 +1,139 @@
+﻿package "net.exiva.dropiologger"
+
+interface "{source}net/exiva/dropiologger/Resources.java"
+events "{source}net/exiva/dropiologger/Commands.java"
+
+#
+## Application Strings
+#
+string ID_APP_NAME "dropiologger"
+string ID_APP_CLASS "net.exiva.dropiologger.dropiologger"
+string ID_VERSION "v@APP_VERSION_MAJOR@.@APP_VERSION_MINOR@/@APP_VERSION_BUILD@"
+string ID_LOCALE "en_US"
+
+#
+## Bug Report Dialog
+#
+dialog ID_BUG_REPORT
+	title = "Submit a Bug Report"
+	widthPct = 90
+	button
+		position = buttonTop1
+		event = EVENT_CANCEL
+		title = "Cancel"
+		shortcut = cancelButton
+		id = ID_CANCEL_BUTTON
+	button
+		position = buttonBottom1
+		event = EVENT_SEND_BUG
+		title = "Send"
+		shortcut = backButton
+		id = ID_SEND_BUG
+	textField
+		alignWithParentTop = 5
+		alignWithParentLeft = 5
+		fillToRight = 5
+		autoText
+		maxLength = 100
+		labelWhenEmpty = "Short Bug Description"
+		id = ID_BUG_TITLE
+	editText
+		id = ID_BUG_TEXT
+		fillToRight = 5
+		heightPct = 50
+		numDisplayLines = 6
+		hasBorder
+		positionBelow = ID_BUG_TITLE : 5
+		initialText = "----DON'T DELETE THIS (But fill it in.)----\nBug Description:\nSteps to Reproduce:\nActual Results:\nExpected Results:\nReproducible: Yes/No\nPriority: 1 - 5 (1 = Highest - 5 = Lowest)"
+		autoText
+		justifyLeft
+endDialog
+
+#
+## Suggestion Dialog
+#
+dialog ID_SUGGESTION
+	title = "Submit a Suggestion/Feature Request"
+	widthPct = 90
+	button
+		position = buttonTop1
+		event = EVENT_CANCEL
+		title = "Cancel"
+		shortcut = cancelButton
+		id = ID_CANCEL_BUTTON
+	button
+		position = buttonBottom1
+		event = EVENT_SEND_SUGGESTION
+		title = "Send"
+		shortcut = backButton
+		id = ID_SEND_SUGGESTION
+	textField
+		alignWithParentTop = 5
+		alignWithParentLeft = 5
+		fillToRight = 5
+		autoText
+		maxLength = 100
+		labelWhenEmpty = "Short Description"
+		id = ID_SUGGESTION_TITLE
+	editText
+		id = ID_SUGGESTION_TEXT
+		fillToRight = 5
+		heightPct = 50
+		numDisplayLines = 6
+		hasBorder
+		positionBelow = ID_SUGGESTION_TITLE : 5
+		labelWhenEmpty = "So, what do you want to see?"
+		autoText
+		justifyLeft
+endDialog
+
+#
+## Login Screen Menu
+#
+menu ID_MAIN_MENU
+	menuItem
+		title = "Submit a Bug"
+		event = EVENT_BUG
+	menuItem
+		title = "Suggestion"
+		event = EVENT_SUGGESTION
+endMenu
+
+#
+## Main Screen
+#
+screen ID_MAIN_SCREEN
+	title = "Drop.io logger"
+	className = "net.exiva.dropiologger.dropiologgerView"
+	actionMenu = ID_MAIN_MENU
+	backgroundColor = defaultPaneColor
+
+	button
+		event = EVENT_GENERATE_EXCEPTION
+		title = "Generate Exception"
+		initialFocus
+		centerHorizontally
+		centerVertically
+
+endScreen
+
+#
+## Splash Screen
+#
+splashScreen ID_SPLASH_SCREEN_RESOURCE
+@ IF {screen} = fwvga
+fwvgaSplashScreen
+@ ELSEIF {screen} = wqvga
+wqvgaSplashScreen
+@ ELSEIF {screen} = qvga
+qvgaSplashScreen
+@ ENDIF
+	staticTextBox
+		text = ID_APP_NAME
+		id = ID_APP
+		alignWithParentLeft = 2
+		alignWithParentTop = 0
+		fillToRight = 2
+		transparent
+		doesNotHaveBorder
+endSplashScreen

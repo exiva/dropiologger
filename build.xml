@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<project name="dropiologger" default="run">
+    <property environment="env"/>
+    <property name="DANGER_HOME" value="${env.DANGER_HOME}"/>
+    <property name="APP_CLASS_NAME"  value="dropiologger"/>
+    <property name="APP_PACKAGE_NAME" value="net.exiva.dropiologger"/>
+
+	<!-- Blade - T-Mo US -->
+	<property name="VERSION" value="5.0"/>
+	<property name="BUILD" value="265811" />
+
+	<property name="APP_VERSION_MAJOR" value="1"/>
+	<property name="APP_VERSION_MINOR" value="0"/>
+	<property name="APP_VERSION_BUILD" value="27"/>
+
+	<!-- <import file="${DANGER_HOME}/tools/proguard.xml"/> -->
+	<import file="${DANGER_HOME}/tools/build_common.xml"/>
+</project>
